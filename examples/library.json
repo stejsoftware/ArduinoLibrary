@@ -1,0 +1,23 @@
+{
+  "name": "ArduinoLibrary",
+  "keywords": "arduino, button, led_matrix, led, list, relay, timer",
+  "description": "A collection of objects and utilities for the Arduino.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stejsoftware/ArduinoLibrary.git"
+  },
+  "authors": [
+    {
+      "name": "Jonathan Meyer",
+      "email": "jon@stej.com",
+      "url": "http://stej.com",
+      "maintainer": true
+    }
+  ],
+  "dependencies": {
+    "name": "Adafruit LED Backpack Library",
+    "frameworks": "arduino"
+  },
+  "version": "1.0.1",
+  "frameworks": "arduino"
+}
