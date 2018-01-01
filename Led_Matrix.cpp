@@ -1,5 +1,7 @@
 #include "Led_Matrix.h"
 
+#define swap(a, b) { int16_t t = a; a = b; b = t; }
+
 Led_Matrix::Led_Matrix(uint16_t width, uint16_t height, uint8_t cols, uint8_t rows, uint16_t buffer_length) :
     Adafruit_GFX(width, height),
 
