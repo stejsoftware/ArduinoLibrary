@@ -1,6 +1,6 @@
 #include <Led.h>
 
-// create an LED object that uses PIN 13 and uses 5+ for on
+// create an LED object that uses PIN 6 and uses 5+ for on
 Led led(6, HIGH);
 
 void done(Led &led)

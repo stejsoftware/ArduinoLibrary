@@ -8,7 +8,7 @@ void setup()
     Serial.begin(9600);
 
     Serial.print("Relay state: ");
-    Serial.print(relay.state());
+    Serial.println(relay.state());
 
     // engage the relay
     relay.on();

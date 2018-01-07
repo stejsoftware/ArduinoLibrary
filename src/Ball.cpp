@@ -2,9 +2,9 @@
 
 #define BALL "/-\\|"
 
-BallClass::BallClass() : m_frame(0),
-                         m_auto_delete(false),
-                         m_ball_len(strlen(BALL))
+BallClass::BallClass() : m_auto_delete(false),
+                         m_ball_len(strlen(BALL)),
+                         m_frame(0)
 {
 }
 
@@ -20,10 +20,12 @@ const char BallClass::next() const
 
 size_t BallClass::printTo(Print &p) const
 {
-    p.write(next());
+    size_t s = p.write(next());
 
     if (m_auto_delete)
-        p.write(char(8));
+        s += p.write(char(8));
+
+    return s;
 }
 
 void BallClass::setAutoDelete()

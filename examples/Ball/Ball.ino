@@ -10,7 +10,7 @@ void wait()
 void setup()
 {
     Serial.begin(9600);
-
+    Ball.setAutoDelete();
     Timer.repeat(wait, 500);
 }
 
