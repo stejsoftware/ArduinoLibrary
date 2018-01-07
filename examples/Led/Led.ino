@@ -1,9 +1,9 @@
-#include "Led.h"
+#include <Led.h>
 
 // create an LED object that uses PIN 13 and uses 5+ for on
 Led led(6, HIGH);
 
-void done(Led & led)
+void done(Led &led)
 {
   if (led.brightness() == 0)
   {
@@ -15,7 +15,7 @@ void done(Led & led)
   }
 }
 
-//The setup function is called once at startup of the sketch
+// The setup function is called once at startup of the sketch
 void setup()
 {
   Serial.begin(9600);

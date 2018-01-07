@@ -1,7 +1,7 @@
 #ifndef __Button_h_
 #define __Button_h_
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 // the amount of time required to identify a latch
 #define BUTTON_DEBOUNCE_DELAY 50
@@ -13,11 +13,16 @@
 
 class Button;
 
-typedef void (*ButtonEventHandler)(Button & button);
+typedef void (*ButtonEventHandler)(Button &button);
 
 enum ButtonEvent
 {
-  bePressed, beReleased, beClick, beDblClick, beHeld, ButtonEvent_Count
+  bePressed,
+  beReleased,
+  beClick,
+  beDblClick,
+  beHeld,
+  ButtonEvent_Count
 };
 
 class Button
@@ -43,12 +48,11 @@ public:
   void run();
 
 private:
-
   // executes an event
   void fire(ButtonEvent event);
 
-  Button(const Button & rhs);
-  Button & operator=(const Button & rhs);
+  Button(const Button &rhs);
+  Button &operator=(const Button &rhs);
 
   uint8_t m_pin;
   bool m_pressed_is_high;

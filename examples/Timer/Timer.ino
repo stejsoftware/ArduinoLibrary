@@ -19,6 +19,7 @@ void wake()
     Serial.println("Time to wake!")
 }
 
+// The setup function is called once at startup of the sketch
 void setup()
 {
     Serial.begin(9600);
@@ -28,6 +29,7 @@ void setup()
     Timer.repeat(minute, MINUTE);
 }
 
+// The loop function is called in an endless loop
 void loop()
 {
     Timer.run();

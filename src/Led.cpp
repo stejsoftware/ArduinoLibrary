@@ -1,17 +1,16 @@
 #include "Led.h"
 
-Led::Led(uint8_t pin, uint8_t on_value) :
-    m_on_is_high(on_value == HIGH),
+Led::Led(uint8_t pin, uint8_t on_value) : m_on_is_high(on_value == HIGH),
 
-    m_millis(millis()),
-    m_value(0),
-    m_pin(pin),
+                                          m_millis(millis()),
+                                          m_value(0),
+                                          m_pin(pin),
 
-    m_frame(0),
-    m_frame_count(0),
-    m_handler(NULL),
+                                          m_frame(0),
+                                          m_frame_count(0),
+                                          m_handler(NULL),
 
-    m_max(100)
+                                          m_max(100)
 {
   memset(m_program, 0, LED_MAX_FRAMES);
 
@@ -42,7 +41,7 @@ void Led::setMax(uint8_t precent)
 
 void Led::brightness(uint8_t percent)
 {
-  if( percent > m_max )
+  if (percent > m_max)
   {
     percent = m_max;
   }
@@ -111,12 +110,12 @@ void Led::flash(LedEventHandler handler)
 void Led::fadeOn(LedEventHandler handler, uint8_t delay)
 {
   m_frame_count = 0;
-  
-  for( uint8_t x = 0; x < delay; x++ )
+
+  for (uint8_t x = 0; x < delay; x++)
   {
     m_program[m_frame_count++] = 0;
   }
-  
+
   m_program[m_frame_count++] = 0;
   m_program[m_frame_count++] = 25;
   m_program[m_frame_count++] = 50;
@@ -131,7 +130,7 @@ void Led::fadeOff(LedEventHandler handler, uint8_t delay)
 {
   m_frame_count = 0;
 
-  for( uint8_t x = 0; x < delay; x++ )
+  for (uint8_t x = 0; x < delay; x++)
   {
     m_program[m_frame_count++] = 100;
   }
@@ -160,13 +159,13 @@ void Led::display()
     {
       LedEventHandler handler = m_handler;
       m_handler = NULL;
-      
+
       handler(*this);
     }
   }
 }
 
-bool operator==(const Led & lhs, const Led & rhs)
+bool operator==(const Led &lhs, const Led &rhs)
 {
   return lhs.pin() == rhs.pin();
 }

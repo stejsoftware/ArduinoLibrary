@@ -1,16 +1,14 @@
 #include "Button.h"
 
-Button::Button(uint8_t pin, uint8_t pressed_value, bool use_pullup) :
-    m_pin(pin),
-    m_pressed_is_high(pressed_value == HIGH),
-
-    m_debounce_t(0),
-    m_click_t(0),
-    m_dbl_click_t(0),
-    m_click_count(0),
-    m_last_read(false),
-    m_current_state(false),
-    m_held(false)
+Button::Button(uint8_t pin, uint8_t pressed_value, bool use_pullup) : m_pin(pin),
+                                                                      m_pressed_is_high(pressed_value == HIGH),
+                                                                      m_debounce_t(0),
+                                                                      m_click_t(0),
+                                                                      m_dbl_click_t(0),
+                                                                      m_click_count(0),
+                                                                      m_last_read(false),
+                                                                      m_current_state(false),
+                                                                      m_held(false)
 {
   memset(m_handler, 0, ButtonEvent_Count);
 
@@ -56,8 +54,8 @@ void Button::run()
     fire(bePressed);
   }
   else
-  // if latch down
-  if (!state && m_current_state)
+      // if latch down
+      if (!state && m_current_state)
   {
     m_current_state = state;
     m_held = false;
@@ -119,8 +117,7 @@ bool Button::read()
 
   // read the button
   bool current_read =
-      m_pressed_is_high ?
-          (digitalRead(m_pin) == HIGH) : (digitalRead(m_pin) == LOW);
+      m_pressed_is_high ? (digitalRead(m_pin) == HIGH) : (digitalRead(m_pin) == LOW);
 
   // if the button state changed
   if (current_read != m_last_read)

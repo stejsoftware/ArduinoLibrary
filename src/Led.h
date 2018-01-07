@@ -1,14 +1,14 @@
 #ifndef __LED_h_
 #define __LED_h_
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 #define LED_MAX_FRAMES 20
 #define LED_FRAME_INTERVAL 60
 
 class Led;
 
-typedef void (*LedEventHandler)(Led & led);
+typedef void (*LedEventHandler)(Led &led);
 
 class Led
 {
@@ -48,8 +48,8 @@ public:
   void display();
 
 private:
-  Led(const Led & rhs);
-  Led & operator=(const Led & rhs);
+  Led(const Led &rhs);
+  Led &operator=(const Led &rhs);
 
   bool m_on_is_high;
 
@@ -65,6 +65,6 @@ private:
   uint8_t m_max;
 };
 
-bool operator==(const Led & lhs, const Led & rhs);
+bool operator==(const Led &lhs, const Led &rhs);
 
 #endif // __LED_h_
