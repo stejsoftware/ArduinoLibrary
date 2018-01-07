@@ -1,0 +1,24 @@
+language: python
+python:
+    - "2.7"
+
+# Cache PlatformIO packages using Travis CI container-based infrastructure
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+
+# find examples -type f -name "*.ino"  | cut -d/ -f2- |  sed 's/^/    - PLATFORMIO_CI_SRC=/'
+env:
+    - PLATFORMIO_CI_SRC=examples/Ball/Ball.ino
+    - PLATFORMIO_CI_SRC=examples/Button/Button.ino
+    - PLATFORMIO_CI_SRC=examples/Button_And_Led/Button_And_Led.ino
+    - PLATFORMIO_CI_SRC=examples/Led/Led.ino
+    - PLATFORMIO_CI_SRC=examples/Relay/Relay.ino
+    - PLATFORMIO_CI_SRC=examples/Timer/Timer.ino
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --lib="." --board=uno --board=micro --board=nanoatmega328 --board=miniatmega328 --board=pro16MHzatmega328

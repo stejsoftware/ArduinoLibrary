@@ -1,4 +1,4 @@
-# ArduinoLibrary
+# ArduinoLibrary [![Build Status](https://travis-ci.org/stejsoftware/ArduinoLibrary.svg?branch=master)](https://travis-ci.org/stejsoftware/ArduinoLibrary)
 
 A collection of objects and utilities for the Arduino.
 
