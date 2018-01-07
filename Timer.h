@@ -9,7 +9,7 @@ typedef void (*TimerEventHandler)();
 class Alarm
 {
 public:
-  Alarm(TimerEventHandler handler, uint16_t interval, bool repeat);
+  Alarm(TimerEventHandler handler, uint32_t interval, bool repeat);
   ~Alarm();
 
   void reset();
@@ -25,7 +25,7 @@ private:
 
   TimerEventHandler m_handler;
   bool m_repeat;
-  uint16_t m_interval;
+  uint32_t m_interval;
   uint32_t m_timeout;
 };
 
@@ -35,8 +35,8 @@ public:
   TimerClass();
   ~TimerClass();
 
-  Alarm * repeat(TimerEventHandler handler, uint16_t interval);
-  Alarm * delay(TimerEventHandler handler, uint16_t timeout);
+  Alarm * repeat(TimerEventHandler handler, uint32_t interval);
+  Alarm * delay(TimerEventHandler handler, uint32_t timeout);
 
   void run();
 

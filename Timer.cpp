@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-Alarm::Alarm(TimerEventHandler handler, uint16_t interval, bool repeat) :
+Alarm::Alarm(TimerEventHandler handler, uint32_t interval, bool repeat) :
     m_handler(handler),
     m_repeat(repeat),
     m_interval(interval),
@@ -58,7 +58,7 @@ TimerClass::~TimerClass()
   }
 }
 
-Alarm * TimerClass::repeat(TimerEventHandler handler, uint16_t interval)
+Alarm * TimerClass::repeat(TimerEventHandler handler, uint32_t interval)
 {
   Alarm * alarm = new Alarm(handler, interval, true);
   alarm->reset();
@@ -66,7 +66,7 @@ Alarm * TimerClass::repeat(TimerEventHandler handler, uint16_t interval)
   return alarm;
 }
 
-Alarm * TimerClass::delay(TimerEventHandler handler, uint16_t timeout)
+Alarm * TimerClass::delay(TimerEventHandler handler, uint32_t timeout)
 {
   Alarm * alarm = new Alarm(handler, timeout, false);
   alarm->reset();
